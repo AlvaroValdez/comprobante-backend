@@ -38,7 +38,7 @@ app.post("/api/envios", async (req, res) => {
   // Calcula el monto final (CLP a moneda destino)
   let montoFinal = null;
   if (montoCLP && tipoCambio && !isNaN(montoCLP) && !isNaN(tipoCambio)) {
-    montoFinal = parseFloat(montoCLP) / parseFloat(tipoCambio);
+    montoFinal = parseFloat(montoCLP) * parseFloat(tipoCambio);
   }
   try {
     const result = await pool.query(
